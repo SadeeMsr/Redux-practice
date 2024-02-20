@@ -6,5 +6,6 @@ export const bookActionTypes = {
 
 
 export const handlerActionTypes = {
-  SET_EDIT_MODE: "SET_EDIT_MODE"
+  SET_EDIT_MODE: "SET_EDIT_MODE",
+  SET_DONE: "SET_DONE"
 }

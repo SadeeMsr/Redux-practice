@@ -18,3 +18,8 @@ export function updateBook(data) {
 export function deleteBook(id) {
     return {type: bookActionTypes.DELETE_BOOK, payload: id }
 }
+
+
+export function setDone(str) {
+    return {type: handlerActionTypes.SET_DONE, payload: str }
+}

@@ -15,21 +15,30 @@ function updateDeletedBooks(state, payload) {
 }
 
 const initialState = {
-  books: [
-    {
-      isbn: "123-456-222",
-      author: { AuthorFirstName: "Doe", AuthorLastName: "Jane" },
-      editor: { EditorFirstName: "Smith", EditorLastName: "Jane" },
-      title: "The Ultimate Database Study Guide",
-      categories: [
-        { id: 1, label: "Non-Fiction", value: "Non-Fiction" },
-        { id: 2, label: "Noble", value: "Noble" },
-      ],
-    },
-  ],
+  books: [],
   formType: "Create",
   dataForEdit: {},
   msg: "",
+  data:{
+    child1:{
+      value: "x",
+      child2:{
+        value:"y",
+        child3:{
+          value:2,
+          child4:{
+            value: 1,
+            child5: {
+              value:2,
+              child6:{
+                value: "last"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 };
 
 export const bookReducers = (state = initialState, { type, payload }) => {
@@ -59,6 +68,18 @@ export const bookReducers = (state = initialState, { type, payload }) => {
         msg: "Successfully Deleted !",
       };
 
+
+    case handlerActionTypes.SET_DONE:
+      {
+      const copyOfData = structuredClone(state.data)
+      
+      copyOfData.child1.child2.child3.child4.child5.child6.value = payload
+
+      return {
+        ...state,
+        data:copyOfData
+      };
+     }
     default:
       return state;
   }
